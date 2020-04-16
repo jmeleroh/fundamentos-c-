@@ -8,32 +8,52 @@ namespace Etapa1
         static void Main(string[] args)
         {
             var escuela = new Escuela("Platzi Academy", 2012, TiposEscuela.PreEscolar,
-            pais:"Colombia", ciudad:"Bogotá");            
-            var curso1 = new Curso(){
-                Nombre="101"
+            pais: "Colombia", ciudad: "Bogotá");
+            var curso1 = new Curso()
+            {
+                Nombre = "101"
             };
-            var curso2 = new Curso(){
-                Nombre="201"
+            var curso2 = new Curso()
+            {
+                Nombre = "201"
             };
-            var curso3 = new Curso(){
-                Nombre="301"
-            };            
+            var curso3 = new Curso()
+            {
+                Nombre = "301"
+            };
 
             // Arreglos
             var arregloCursos = new Curso[3];
-            arregloCursos[0] = new Curso(){
+            arregloCursos[0] = new Curso()
+            {
                 Nombre = "101"
             };
             arregloCursos[1] = curso2;
-            
-            arregloCursos[2] = new Curso{
+
+            arregloCursos[2] = new Curso
+            {
                 Nombre = "301"
+            };
+
+            var arregloCursos2 = new Curso[3]{
+                new Curso()
+                {
+                    Nombre = "101"
+                },
+                new Curso()
+                {
+                    Nombre = "201"
+                },
+                new Curso()
+                {
+                    Nombre = "301"
+                }
             };
             System.Console.WriteLine("Presione enter para continuar");
             Console.ReadLine();
             ImprimirCursos(arregloCursos);
             ImprimirCursosforeach(arregloCursos);
-           
+
             /*Console.WriteLine(escuela);
             System.Console.WriteLine("==========");
             System.Console.WriteLine(curso1.Nombre + "," + curso1.UniqueId);
@@ -43,7 +63,7 @@ namespace Etapa1
 
         private static void ImprimirCursos(Curso[] arregloCursos)
         {
-            int cont=0;
+            int cont = 0;
             while (cont < arregloCursos.Length)
             {
                 System.Console.WriteLine(arregloCursos[cont].Nombre);
@@ -52,25 +72,25 @@ namespace Etapa1
         }
         private static void ImprimirCursosFor(Curso[] arregloCursos)
         {
-           for (int i = 0; i < arregloCursos.Length; i++)
+            for (int i = 0; i < arregloCursos.Length; i++)
             {
                 System.Console.WriteLine(arregloCursos[i].Nombre);
             }
         }
         private static void ImprimirCursosDoWhile(Curso[] arregloCursos)
         {
-            int i=0;
-           do
-           {
-               System.Console.WriteLine(arregloCursos[i].Nombre);
-               i++;
-           } while (i< arregloCursos.Length);
+            int i = 0;
+            do
+            {
+                System.Console.WriteLine(arregloCursos[i].Nombre);
+                i++;
+            } while (i < arregloCursos.Length);
         }
         private static void ImprimirCursosforeach(Curso[] arregloCursos)
         {
-            foreach (var nombre in arregloCursos)
+            foreach (var curso in arregloCursos)
             {
-                System.Console.WriteLine(nombre.UniqueId);
+                System.Console.WriteLine(curso.UniqueId);
             }
         }
     }
