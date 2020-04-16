@@ -9,9 +9,9 @@ namespace Etapa1
         {
             var escuela = new Escuela("Platzi Academy", 2012, TiposEscuela.PreEscolar,
             pais:"Colombia", ciudad:"Bogotá");            
-            var curso1 = new Curso()
+            var curso1 = new Curso();
             {
-                Nombre="101";
+                curso1.Nombre="101";
 
             }
             Console.WriteLine(escuela);
