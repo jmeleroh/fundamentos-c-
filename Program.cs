@@ -1,5 +1,6 @@
 ﻿using System;
 using CoreEscuela.Entidades;
+using static System.Console;
 
 namespace Etapa1
 {
@@ -23,6 +24,7 @@ namespace Etapa1
             };
 
             // Arreglos
+
             var arregloCursos = new Curso[3];
             arregloCursos[0] = new Curso()
             {
@@ -49,16 +51,43 @@ namespace Etapa1
                     Nombre = "301"
                 }
             };
+
+            Curso[] arregloCursos3 =  {
+                new Curso(){ Nombre = "101"},
+                new Curso(){ Nombre = "201"},
+                new Curso(){ Nombre = "301"}
+            };
+
+            escuela.Cursos = arregloCursos3;
+
             System.Console.WriteLine("Presione enter para continuar");
             Console.ReadLine();
             ImprimirCursos(arregloCursos);
             ImprimirCursosforeach(arregloCursos);
+            ImprimirCursosEscuela(escuela);
 
             /*Console.WriteLine(escuela);
             System.Console.WriteLine("==========");
             System.Console.WriteLine(curso1.Nombre + "," + curso1.UniqueId);
             System.Console.WriteLine($"{curso2.Nombre}, {curso2.UniqueId}");
             System.Console.WriteLine($"{curso3.Nombre}, {curso3.UniqueId}");*/
+        }
+
+        private static void ImprimirCursosEscuela(Escuela escuela)
+        {
+            System.Console.WriteLine("============");
+            System.Console.WriteLine("Cursos de la Escuela");
+            System.Console.WriteLine("============");
+            if(escuela.Cursos == null){
+                return;
+            }
+            else{
+            foreach (var curso in escuela.Cursos)
+            {
+            // Al usar using static System no hace falta System.Console
+               WriteLine($"Nombre: {escuela.Nombre}");
+            }
+            }
         }
 
         private static void ImprimirCursos(Curso[] arregloCursos)
@@ -93,5 +122,6 @@ namespace Etapa1
                 System.Console.WriteLine(curso.UniqueId);
             }
         }
+
     }
 }
