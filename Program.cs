@@ -88,11 +88,12 @@ namespace Etapa1
              // Quitar valores
 
              //ListaCursos.Clear();
-             ListaCursos.Remove(ListaCursos[0]);
+            /* ListaCursos.Remove(ListaCursos[0]);
              for (int i = 0; i < ListaCursos.Count; i++)
              {
-                 ListaCursos.Remove(ListaCursos[i]);
-             }
+                ListaCursos.Remove(ListaCursos[i]);
+             }*/
+             ListaCursos.RemoveAll(Predicado);
              
 
              escuela.Cursos.Add(new Curso { Nombre="201", Jornada= TiposJornada.Mañana});
@@ -104,12 +105,12 @@ namespace Etapa1
             ImprimirCursos(arregloCursos);
             ImprimirCursosforeach(arregloCursos);
             ImprimirCursosEscuela(escuela);
+           
+        }
 
-            /*Console.WriteLine(escuela);
-            System.Console.WriteLine("==========");
-            System.Console.WriteLine(curso1.Nombre + "," + curso1.UniqueId);
-            System.Console.WriteLine($"{curso2.Nombre}, {curso2.UniqueId}");
-            System.Console.WriteLine($"{curso3.Nombre}, {curso3.UniqueId}");*/
+        private static bool Predicado(Curso curobj)
+        {
+            return curobj.Nombre=="301";
         }
 
         private static void ImprimirCursosEscuela(Escuela escuela)
