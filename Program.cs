@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CoreEscuela.Entidades;
 using static System.Console;
 
@@ -58,6 +59,10 @@ namespace Etapa1
                 new Curso(){ Nombre = "301"}
             };
 
+            // Colecciones
+
+            var ListaCursos = new List<Curso>();
+
             escuela.Cursos = arregloCursos3;
 
             System.Console.WriteLine("Presione enter para continuar");
@@ -78,7 +83,8 @@ namespace Etapa1
             System.Console.WriteLine("============");
             System.Console.WriteLine("Cursos de la Escuela");
             System.Console.WriteLine("============");
-            if(escuela.Cursos == null){
+            // escuela?.Cursos verifica si escuela es null, si es null no continua
+            if(escuela?.Cursos == null){
                 return;
             }
             else{
