@@ -61,9 +61,43 @@ namespace Etapa1
 
             // Colecciones
 
-            var ListaCursos = new List<Curso>();
+            var ListaCursos = new List<Curso>(){
+                new Curso(){ Nombre = "301"},
+                new Curso(){ Nombre = "401"},
+            };
 
-            escuela.Cursos = arregloCursos3;
+            //escuela.Cursos.Add(new Curso{ Nombre = "301", Jornada= TiposJornada.Mañana});
+            ListaCursos.Add(new Curso{ Nombre = "501", Jornada= TiposJornada.Mañana});
+
+            var ListaCursos2 = new List<Curso>(){
+                new Curso(){ Nombre = "401"},
+                new Curso(){ Nombre = "501"},
+            };
+            // Addrange añade nuevos elementos a una la lista de otra lista
+            //ListaCursos.AddRange(ListaCursos2);
+
+            escuela.Cursos = ListaCursos;
+
+            // También podemos hacerlo directamente sin listas
+
+             escuela.Cursos = new List<Curso>(){
+                 new Curso() { Nombre="101", Jornada= TiposJornada.Mañana}
+             };
+
+             
+             // Quitar valores
+
+             //ListaCursos.Clear();
+             ListaCursos.Remove(ListaCursos[0]);
+             for (int i = 0; i < ListaCursos.Count; i++)
+             {
+                 ListaCursos.Remove(ListaCursos[i]);
+             }
+             
+
+             escuela.Cursos.Add(new Curso { Nombre="201", Jornada= TiposJornada.Mañana});
+             escuela.Cursos.AddRange(ListaCursos);
+
 
             System.Console.WriteLine("Presione enter para continuar");
             Console.ReadLine();
@@ -91,7 +125,7 @@ namespace Etapa1
             foreach (var curso in escuela.Cursos)
             {
             // Al usar using static System no hace falta System.Console
-               WriteLine($"Nombre: {escuela.Nombre}");
+               WriteLine($"Nombre: {curso.Nombre} Código: {curso.UniqueId} Tipo: {curso.Jornada}");
             }
             }
         }
