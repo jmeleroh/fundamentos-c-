@@ -93,7 +93,15 @@ namespace Etapa1
              {
                 ListaCursos.Remove(ListaCursos[i]);
              }*/
-             ListaCursos.RemoveAll(Predicado);
+            ListaCursos.RemoveAll(Predicado);
+
+             //Delegado
+            ListaCursos.RemoveAll(delegate(Curso cur){
+                  return cur.Nombre == "301";
+             });
+             
+            // Lambda 
+            ListaCursos.RemoveAll((Curso cur) => cur.Nombre == "301" && cur.Jornada == TiposJornada.Mañana);
              
 
              escuela.Cursos.Add(new Curso { Nombre="201", Jornada= TiposJornada.Mañana});
