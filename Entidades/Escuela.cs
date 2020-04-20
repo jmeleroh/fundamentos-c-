@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace CoreEscuela.Entidades
 {
-    class Escuela
+    public class Escuela
     {
         string nombre;
         public string Nombre
@@ -37,6 +37,10 @@ namespace CoreEscuela.Entidades
             (Nombre,AñoCreacion) = (nombre,año);
             Pais = pais;
             this.Ciudad = ciudad;
+        }
+
+        public Escuela()
+        {
         }
 
         public override string ToString()

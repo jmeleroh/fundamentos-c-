@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using CoreEscuela.Entidades;
 using static System.Console;
 
-namespace Etapa1
+namespace CoreEscuela
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var escuela = new Escuela("Platzi Academy", 2012, TiposEscuela.PreEscolar,
+            var engine = new EscuelaEngine();
+            engine.Inicializar();
+
+            WriteLine("==============");
+            ImprimirCursosEscuela(engine.Escuela);
+
+           /* var escuela = new Escuela("Platzi Academy", 2012, TiposEscuela.PreEscolar,
             pais: "Colombia", ciudad: "Bogotá");
             var curso1 = new Curso()
             {
@@ -59,67 +65,9 @@ namespace Etapa1
                 new Curso(){ Nombre = "301"}
             };
 
-            // Colecciones
-
-            var ListaCursos = new List<Curso>(){
-                new Curso(){ Nombre = "301"},
-                new Curso(){ Nombre = "401"},
-            };
-
-            //escuela.Cursos.Add(new Curso{ Nombre = "301", Jornada= TiposJornada.Mañana});
-            ListaCursos.Add(new Curso{ Nombre = "501", Jornada= TiposJornada.Mañana});
-
-            var ListaCursos2 = new List<Curso>(){
-                new Curso(){ Nombre = "401"},
-                new Curso(){ Nombre = "501"},
-            };
-            // Addrange añade nuevos elementos a una la lista de otra lista
-            //ListaCursos.AddRange(ListaCursos2);
-
-            escuela.Cursos = ListaCursos;
-
-            // También podemos hacerlo directamente sin listas
-
-             escuela.Cursos = new List<Curso>(){
-                 new Curso() { Nombre="101", Jornada= TiposJornada.Mañana}
-             };
-
-             
-             // Quitar valores
-
-             //ListaCursos.Clear();
-            /* ListaCursos.Remove(ListaCursos[0]);
-             for (int i = 0; i < ListaCursos.Count; i++)
-             {
-                ListaCursos.Remove(ListaCursos[i]);
-             }*/
-            ListaCursos.RemoveAll(Predicado);
-
-             //Delegado
-            ListaCursos.RemoveAll(delegate(Curso cur){
-                  return cur.Nombre == "301";
-             });
-             
-            // Lambda 
-            ListaCursos.RemoveAll((Curso cur) => cur.Nombre == "301" && cur.Jornada == TiposJornada.Mañana);
-             
-
-             escuela.Cursos.Add(new Curso { Nombre="201", Jornada= TiposJornada.Mañana});
-             escuela.Cursos.AddRange(ListaCursos);
-
-
-            System.Console.WriteLine("Presione enter para continuar");
-            Console.ReadLine();
-            ImprimirCursos(arregloCursos);
-            ImprimirCursosforeach(arregloCursos);
-            ImprimirCursosEscuela(escuela);
-           
+            */
         }
 
-        private static bool Predicado(Curso curobj)
-        {
-            return curobj.Nombre=="301";
-        }
 
         private static void ImprimirCursosEscuela(Escuela escuela)
         {
