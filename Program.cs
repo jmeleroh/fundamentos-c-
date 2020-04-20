@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CoreEscuela.Entidades;
+using  CoreEscuela.Util;
 using static System.Console;
 
 namespace CoreEscuela
@@ -10,11 +11,9 @@ namespace CoreEscuela
         static void Main(string[] args)
         {
             var engine = new EscuelaEngine();
-            engine.Inicializar();
-
-            WriteLine("==============");
+            engine.Inicializar();                  
             ImprimirCursosEscuela(engine.Escuela);
-
+            
            /* var escuela = new Escuela("Platzi Academy", 2012, TiposEscuela.PreEscolar,
             pais: "Colombia", ciudad: "Bogotá");
             var curso1 = new Curso()
@@ -71,9 +70,9 @@ namespace CoreEscuela
 
         private static void ImprimirCursosEscuela(Escuela escuela)
         {
-            System.Console.WriteLine("============");
-            System.Console.WriteLine("Cursos de la Escuela");
-            System.Console.WriteLine("============");
+            
+            Printer.WriteTitle("Curso de la Escuela");
+            Printer.Beep(10000, cantidad:10);
             // escuela?.Cursos verifica si escuela es null, si es null no continua
             if(escuela?.Cursos == null){
                 return;
