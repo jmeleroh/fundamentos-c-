@@ -25,7 +25,7 @@ namespace CoreEscuela
             }
             var listaA = CargarAlumnos();*/
             CargarAsignaturas();
-            CargarEvaluaciones();
+           // CargarEvaluaciones();
 
 
         }
